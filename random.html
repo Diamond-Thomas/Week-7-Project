@@ -20,6 +20,11 @@
          width: 200px; 
          height: 200px; 
         }
+        #danceEmoji{
+         background: green;
+         width: fit-content;
+         height: fit-content;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +53,40 @@
         }
 
         setInterval(changePanelColors, 1500);
+
+
+        function changeDanceFloorColors(){
+    
+                let x = Math.floor(Math.random() * 255);
+                let y = Math.floor(Math.random() * 255);
+                let z = Math.floor(Math.random() * 255);
+
+                danceFloor.style.backgroundColor = `rgb(${x}, ${y}, ${z}`;
+
+        }
+        const danceFloor = document.getElementById('danceFloor');
+        danceFloor.addEventListener("click", changeDanceFloorColors);
+
+        
+        
+
+        function changeEmoji(event){
+            const emojis = ['💃', '🕺', '🪩', '🎵', '✨', '🕺🏽'];
+            
+            let randomEmoji= Math.floor(Math.random() * emojis.length);
+
+            danceEmoji.textContent = emojis[randomEmoji];
+            event.stopPropagation();
+
+        }
+        const danceEmoji = document.getElementById('danceEmoji');
+        danceEmoji.addEventListener("click", changeEmoji);
+
+        
+
+
+
+
 
     </script>
 

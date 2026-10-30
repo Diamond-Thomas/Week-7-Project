@@ -52,7 +52,7 @@
             });
         }
 
-        setInterval(changePanelColors, 1500);
+        let panelInterval = setInterval(changePanelColors, 1500);
 
 
         function changeDanceFloorColors(){
@@ -72,7 +72,6 @@
 
         function changeEmoji(event){
             const emojis = ['💃', '🕺', '🪩', '🎵', '✨', '🕺🏽'];
-            
             let randomEmoji= Math.floor(Math.random() * emojis.length);
 
             danceEmoji.textContent = emojis[randomEmoji];
@@ -82,12 +81,26 @@
         const danceEmoji = document.getElementById('danceEmoji');
         danceEmoji.addEventListener("click", changeEmoji);
 
-        
 
 
-
-
-
+        window.addEventListener("keydown", event => {
+            if (event.key == "ArrowUp"){
+                danceEmoji.textContent = "💃";
+            }
+            else if (event.key == "ArrowDown"){
+                danceEmoji.textContent = "🕺";
+            } 
+            else if (event.key == "ArrowLeft"){
+                danceEmoji.textContent = "👯";
+            } 
+            else if (event.key == "ArrowRight"){
+                danceEmoji.textContent = "🩰";
+            }
+            else if (event.key == "r"){
+                danceFloor.style.backgroundColor = "red";
+                clearInterval(panelInterval);
+            }
+        });
     </script>
 
 </body>

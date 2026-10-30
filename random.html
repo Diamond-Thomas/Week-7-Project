@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+    <style>
+        #danceFloor{
+         background: red; 
+         width: 500px; 
+         height: 500px; 
+        }
+        #panelOne{
+         background: orange; 
+         width: 200px; 
+         height: 200px; 
+        }
+        #panelTwo{
+         background: yellow; 
+         width: 200px; 
+         height: 200px; 
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="danceFloor">
+        <div id="panelOne"></div>
+        <div id="panelTwo"></div>
+        <div id="danceEmoji">💃</div>
+
+    </div>
+
+    <script>
+        function changePanelColors() {
+            const panel1 = document.getElementById('panelOne');
+            const panel2 = document.getElementById('panelTwo');
+            const panels = [panel1, panel2];
+
+
+            panels.forEach(panels => {
+                let x = Math.floor(Math.random() * 255);
+                let y = Math.floor(Math.random() * 255);
+                let z = Math.floor(Math.random() * 255);
+
+                panels.style.backgroundColor = `rgb(${x}, ${y}, ${z}`;
+            });
+        }
+
+        setInterval(changePanelColors, 500);
+
+    </script>
+
+</body>
+</html>
